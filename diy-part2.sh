@@ -15,7 +15,7 @@ sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generat
 
 echo "==> Revert microsocks socks5 forwarding rules commit"
 
-MICROSOCKS_DIR="package/feeds/passwall/microsocks"
+MICROSOCKS_DIR="package/luci-app-passwall-packages/microsocks"
 BAD_COMMIT="ee784243479b7f10cf197c0246cddaa456a0801d"
 
 if [ -d "$MICROSOCKS_DIR/.git" ]; then

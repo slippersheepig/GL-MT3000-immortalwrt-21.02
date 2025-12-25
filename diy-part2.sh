@@ -12,23 +12,29 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
+echo "================================================="
+echo "==> Handling microsocks broken patch"
+echo "================================================="
 
-echo "==> Revert microsocks socks5 forwarding rules commit"
+MICROSOCKS_PATCH_DIR="package/luci-app-passwall-packages/microsocks/patches"
+BROKEN_PATCH="100-Add-SOCKS5-forwarding-rules-support.patch"
 
-MICROSOCKS_DIR="package/luci-app-passwall-packages/microsocks"
-BAD_COMMIT="ee784243479b7f10cf197c0246cddaa456a0801d"
+if [ -d "$MICROSOCKS_PATCH_DIR" ]; then
+  echo "[INFO] microsocks patch directory exists:"
+  ls -l "$MICROSOCKS_PATCH_DIR"
 
-if [ -d "$MICROSOCKS_DIR/.git" ]; then
-    cd "$MICROSOCKS_DIR"
+  if [ -f "$MICROSOCKS_PATCH_DIR/$BROKEN_PATCH" ]; then
+    echo "[INFO] Found broken patch: $BROKEN_PATCH"
+    echo "[INFO] Removing it now..."
+    rm -f "$MICROSOCKS_PATCH_DIR/$BROKEN_PATCH"
 
-    if git cat-file -e ${BAD_COMMIT}^{commit} 2>/dev/null; then
-        echo "Found bad commit ${BAD_COMMIT}, reverting..."
-        git revert --no-edit ${BAD_COMMIT}
-    else
-        echo "Commit ${BAD_COMMIT} not found, skip revert"
-    fi
-
-    cd -
+    echo "[INFO] After removal, remaining patches:"
+    ls -l "$MICROSOCKS_PATCH_DIR"
+  else
+    echo "[INFO] Broken patch NOT found, nothing to remove."
+  fi
 else
-    echo "microsocks git repo not found, skip revert"
+  echo "[WARN] microsocks patch directory does not exist!"
 fi
+
+echo "================================================="

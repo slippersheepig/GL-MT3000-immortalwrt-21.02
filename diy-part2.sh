@@ -21,7 +21,7 @@ mkdir -p $PATCH_DIR
 cat > $PATCH_DIR/001-fix-c99-label-declaration.patch << 'EOF'
 --- a/sockssrv.c
 +++ b/sockssrv.c
-@@ -502,7 +502,9 @@ handshake(int sock, struct sockaddr *sa)
+@@ -499,7 +499,9 @@ handshake(int sock, struct sockaddr *sa)
  
  error:
 -    int used_rule = 0;
@@ -31,7 +31,7 @@ cat > $PATCH_DIR/001-fix-c99-label-declaration.patch << 'EOF'
      if (acl)
          used_rule = acl->number;
  
-@@ -515,6 +517,7 @@ error:
+@@ -513,6 +515,7 @@ error:
      if (rules)
          ruleslog(used_rule, addr, port, username, 0);
  

@@ -16,4 +16,9 @@
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+
+# homeproxy
 git clone --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
+
+# 添加 sing-box feed
+echo "src-git singbox https://github.com/immortalwrt/packages" >> feeds.conf.default

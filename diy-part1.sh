@@ -16,12 +16,9 @@
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
-
-# homeproxy
-git clone --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
-
-# 获取 sing-box
-echo "==> 获取 sing-box：克隆最新版"
-git clone --depth 1 https://github.com/immortalwrt/packages tmp-sing-box
-mv tmp-sing-box/net/sing-box package/
-rm -rf tmp-sing-box
+rm -rf feeds/luci/applications/luci-app-passwall/
+rm -rf feeds/packages/net/microsocks/
+rm -rf feeds/packages/net/xray-core/
+rm -rf feeds/packages/net/xray-plugin/
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall package/luci-app-passwall
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/luci-app-passwall-packages

@@ -23,5 +23,5 @@ git clone --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-ho
 # 获取 sing-box
 echo "==> 获取 sing-box：克隆最新版"
 git clone --depth 1 https://github.com/immortalwrt/packages tmp-sing-box
-mv tmp-sing-box/net/sing-box feeds/packages/net/
+mv tmp-sing-box/net/sing-box package/
 rm -rf tmp-sing-box

@@ -12,9 +12,3 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
-
-# 获取 sing-box：克隆最新版
-echo "==> 获取 sing-box：克隆最新版"
-git clone --depth 1 https://github.com/immortalwrt/packages tmp-sing-box
-mv tmp-sing-box/net/sing-box feeds/packages/net/
-rm -rf tmp-sing-box

@@ -20,5 +20,8 @@
 # homeproxy
 git clone --depth 1 https://github.com/immortalwrt/homeproxy package/luci-app-homeproxy
 
-# 添加 sing-box feed
-echo "src-git singbox https://github.com/immortalwrt/packages" >> feeds.conf.default
+# 获取 sing-box
+echo "==> 获取 sing-box：克隆最新版"
+git clone --depth 1 https://github.com/immortalwrt/packages tmp-sing-box
+mv tmp-sing-box/net/sing-box feeds/packages/net/
+rm -rf tmp-sing-box

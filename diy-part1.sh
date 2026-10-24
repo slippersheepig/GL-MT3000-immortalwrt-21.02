@@ -18,5 +18,5 @@
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 rm -rf feeds/luci/applications/luci-app-passwall/
 rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,v2ray-plugin,xray-plugin,geoview,shadow-tls,smartdns}
-git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall package/luci-app-passwall
-git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/luci-app-passwall-packages
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
+git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/passwall-packages
